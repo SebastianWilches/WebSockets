@@ -9,7 +9,7 @@ class Server {
         this.port = process.env.PORT;
         this.server = require('http').createServer(this.app);
         this.io = require('socket.io')(this.server);
-        
+
         this.paths = {};
 
         //Midlewares = Van a agregar otra funcionalidad al WebServer
@@ -36,12 +36,16 @@ class Server {
         // this.app.use(this.paths.userRoute, require('../routes/user'));        
     }
 
-    sockets(){
+    sockets() {
         this.io.on('connection', (socket) => {
             console.log('Cliente conectado. ID: ', socket.id);
 
-            socket.on('disconnect', ()=>{
+            socket.on('disconnect', () => {
                 console.log('Cliente desconectado', socket.id);
+            })
+
+            socket.on('send-msg', (payload) => {
+                console.log('Objeto enviado desde el cliente:', payload);
             })
         })
     }
