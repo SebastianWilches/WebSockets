@@ -44,8 +44,11 @@ class Server {
                 console.log('Cliente desconectado', socket.id);
             })
 
+            //Escuchar cuando el cliente emite un evento
             socket.on('send-msg', (payload) => {
-                console.log('Objeto enviado desde el cliente:', payload);
+                
+                //Emitir un evento a todos los clientes conectados
+                this.io.emit('send-msg', payload);
             })
         })
     }

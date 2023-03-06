@@ -21,6 +21,10 @@ socketCliente.on('disconnect', () => {
     lblOnline.style.display = 'none';
 })
 
+socketCliente.on('send-msg', (payload)=>{
+    console.log('Mensaje enviado por otro cliente', payload);
+})
+
 // Eventos
 
 btnClient.addEventListener('click', () => {
