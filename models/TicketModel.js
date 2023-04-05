@@ -60,7 +60,6 @@ class TicketModel {
     saveDB() {
         const dbPath = path.join(__dirname, '../database/data.json');
 
-        console.log(JSON.stringify(this.toJson));
 
         fs.writeFileSync(dbPath, JSON.stringify(this.toJson));
     }
@@ -72,7 +71,7 @@ class TicketModel {
         this.ticketsArray.push(ticket);
 
         this.saveDB();
-        return `Ticket #${ticket.number} creado.`
+        return (`Ticket #${ticket.number} creado.`)
     }
 
     handleTicket(operator) {

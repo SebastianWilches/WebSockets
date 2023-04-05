@@ -1,8 +1,1 @@
-{
-    "lastPosQueue": 3,
-    "day": 4,
-    "month": 3,
-    "year": 2023,
-    "ticketsArray": [],
-    "last4Tickets": []
-}
+{"lastPosQueue":8,"day":4,"month":3,"year":2023,"ticketsArray":[{"number":1,"operator":null},{"number":2,"operator":null},{"number":3,"operator":null},{"number":4,"operator":null},{"number":5,"operator":null},{"number":6,"operator":null},{"number":7,"operator":null},{"number":8,"operator":null}],"last4Tickets":[]}
