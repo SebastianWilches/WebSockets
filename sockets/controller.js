@@ -1,3 +1,8 @@
+const { TicketModel } = require("../models/TicketModel");
+
+
+const ticketModel = new TicketModel();
+
 const socketController = (socket) => {
     console.log('Cliente conectado. ID: ', socket.id);
 
