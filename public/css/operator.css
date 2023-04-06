@@ -1,0 +1,31 @@
+:root{
+    --titulos: 'Rubik', sans-serif;
+    --background1: #FFFFFF;
+    --background2: #0A0504;
+    --alert: #F2BC79;
+}
+
+h1, h2, h3, h4{
+    font-family: var(--titulos);
+    text-align: center;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.normalTXT{
+    font-weight: 400;
+}
+
+.cursive {
+    font-style: italic;
+}
+
+.callout{
+    background-color: var(--alert);
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+    padding: 3px;
+}

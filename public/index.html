@@ -30,16 +30,21 @@
             </h3>
 
             <div>
-                <div class="row gap-2">
+                <form action="operator.html" class="row gap-2">
                     <div class="col col-7">
-                        <input id='msgClient' type="text" class="form-control">
+                        <input name='operatorName' 
+                               type="text"
+                               class="form-control"
+                               required>
                     </div>
                     <div class="col">
-                        <button id='btnLogOn' type="button" class="btn btn-dark">Entrar</button>
+                        <button id='btnLogOn' type="submit" class="btn btn-dark">Entrar</button>
                     </div>
-                </div>
+                </form>
+
                 <div class="row m-2">
-                    <a id='btnCreateTicket' type="button" class="btn btn-success" href="createTicket.html">Crear Ticket</a>
+                    <a id='btnCreateTicket' type="button" class="btn btn-success" href="createTicket.html">Crear
+                        Ticket</a>
                 </div>
                 <div class="row m-2">
                     <button id='btnCreateTicket' type="button" class="btn btn-secondary">Pantalla de atención</button>
