@@ -85,7 +85,7 @@ class TicketModel {
         const actualTicket = this.ticketsArray.shift(); //Saco el primer ticket de la lista
         actualTicket.operator = operator; //Lo asigno a un operador
 
-        this.last4Tickets.unshift(); //Añado un elemento al inicio del arreglo
+        this.last4Tickets.unshift(actualTicket); //Añado un elemento al inicio del arreglo
         if(this.last4Tickets.length > 4){
             this.last4Tickets.splice(-1,1) //Quiero que empieze en la ultima pos y corte hasta 1 despues.
         }
