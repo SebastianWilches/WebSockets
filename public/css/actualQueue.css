@@ -1,0 +1,49 @@
+/* Tipografia */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --titulos: 'Rubik', sans-serif;
+    --background1: #FFFFFF;
+    --background2: #0A0504;
+    --alert: #F2BC79;
+    --ticket1: #353775;
+    --ticket2: #A9ABE1;
+
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--titulos);
+    padding-top: 5rem;
+}
+
+
+.containerTickets {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    height: 100vh;
+}
+
+.containerTicketsSecondary {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+}
+
+.itemTicket {
+    height: 100%;
+}
+
+.ticket1 {
+    background-color: var(--ticket1);
+    color: var(--background1);
+}
+
+.ticket2 {
+    background-color: var(--ticket2);
+    color: var(--background2);
+}
+

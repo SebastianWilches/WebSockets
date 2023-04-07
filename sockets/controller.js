@@ -5,6 +5,10 @@ const ticketModel = new TicketModel();
 
 const socketController = (socket) => {
 
+    //Cargar el último ticket generado y la lista de tickets atendidos.
+    socket.emit('last-ticket', ticketModel.lastPosQueue);
+    socket.emit('actual-queue', ticketModel.last4Tickets);
+
     //Crear un ticket
     socket.on('create-ticket', (payload, callback) => {
 
@@ -13,15 +17,11 @@ const socketController = (socket) => {
         callback(next);
     })
 
-    //Cargar el último ticket generado
-    socket.emit('last-ticket', ticketModel.lastPosQueue);
-
-
     //Atender ticket desde operador
-    socket.on('attend-ticket', (payload, callback) =>{
+    socket.on('attend-ticket', (payload, callback) => {
 
         //Verificamos si el nombre del operador esta vacio
-        if(!payload.operatorName){
+        if (!payload.operatorName) {
             return callback({
                 ok: false,
                 msg: 'No viene el nombre del operador',
@@ -30,12 +30,15 @@ const socketController = (socket) => {
 
 
         const ticket = ticketModel.handleTicket(payload.operatorName);
-        if(!ticket){
+
+        socket.broadcast.emit('actual-queue', ticketModel.last4Tickets); //Actualizamos esta lista
+
+        if (!ticket) {
             return callback({
                 ok: false,
                 msg: 'Ya no hay tickets para atender',
             })
-        }else{
+        } else {
             return callback({
                 ok: true,
                 ticket
