@@ -12,6 +12,11 @@ operator4 = document.getElementById('operator4');
 const socketCliente = io();
 
 socketCliente.on('actual-queue', (payload) => {
+
+    //Para que suene cuando se actualiza esta vista
+    const audio = new Audio('./audio/new-ticket.mp3');
+    audio.play();
+
     const [ticket1, ticket2, ticket3, ticket4] = payload;
     console.log(payload);
 
