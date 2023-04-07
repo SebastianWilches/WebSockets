@@ -2,6 +2,7 @@ const lblOperator = document.getElementById('lblOperator');
 const lblActualTicket = document.getElementById('lblActualTicket');
 const btnAtender = document.getElementById('btnAtender');
 const containerCallout = document.querySelector('.callout');
+const lblPendientes = document.getElementById('lblPendientes');
 
 containerCallout.style.display = 'none';
 
@@ -41,6 +42,18 @@ socketCliente.on('disconnect', () => {
 socketCliente.on('last-ticket', (lastPos) => {
     // console.log(lastPos);
     lblCreateTicket.innerText = `Ticket #${lastPos} creado.`
+})
+
+socketCliente.on('tickets-pendientes', (payload) => {
+    const ticketsPendientes = payload
+
+    if(ticketsPendientes > 0){
+        lblPendientes.innerText = ticketsPendientes
+    }
+
+    if(ticketsPendientes === 0){
+        lblPendientes.innerText = 0;
+    }
 })
 
 

@@ -8,6 +8,8 @@ const socketController = (socket) => {
     //Cargar el último ticket generado y la lista de tickets atendidos.
     socket.emit('last-ticket', ticketModel.lastPosQueue);
     socket.emit('actual-queue', ticketModel.last4Tickets);
+    socket.emit('tickets-pendientes', ticketModel.ticketsArray.length);
+
 
     //Crear un ticket
     socket.on('create-ticket', (payload, callback) => {
@@ -32,6 +34,8 @@ const socketController = (socket) => {
         const ticket = ticketModel.handleTicket(payload.operatorName);
 
         socket.broadcast.emit('actual-queue', ticketModel.last4Tickets); //Actualizamos esta lista
+        socket.emit('tickets-pendientes', ticketModel.ticketsArray.length); //Para que actualice a el mismo
+        socket.broadcast.emit('tickets-pendientes', ticketModel.ticketsArray.length); //Para que actualice al resto
 
         if (!ticket) {
             return callback({
